@@ -3,9 +3,9 @@ platform_width=170;
 platform_length=100;
 platform_height=2;
 // Top: max: 4.5, min: 3, height: 4
-clearance=2;
-top_outter_width=45-clearance;
-top_inner_width=30+clearance;
+clearance=1;
+top_outter_width=50-clearance;
+top_inner_width=40+clearance;
 top_height=40;
 // Border width: 0.5, height from surface: 1
 border_width=5;
