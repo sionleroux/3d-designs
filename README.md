@@ -8,3 +8,5 @@ Libraries I've used so far:
 
 - [ScrewsMetric](https://github.com/More-Wrong/ScrewsMetric)
 - [Round-Anything](https://github.com/Irev-Dev/Round-Anything)
+
+Note to self, these are installed in: `~/.local/share/OpenSCAD/libraries`
