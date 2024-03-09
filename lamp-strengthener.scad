@@ -1,8 +1,11 @@
 include <Round-Anything/polyround.scad>
 $fn=60;
 
-cubeheight=5;
-circheight=38;
+cube_height=5;
+cube_inner_hole=46;
+circ_height=38;
+circ_inner_hole=41;
+thickness=8;
 
 profile = [
     [43/2, 0 , 0],
@@ -15,14 +18,22 @@ difference(){
         /* rotate_extrude(angle = 360, convexity = 2) */
         /*     polygon(polyRound(profile,$fn)); */
 
-        translate([0,0,cubeheight/2+circheight])
+        translate([0,0,cube_height/2+circ_height])
             difference(){
-                translate([0,0,-4]) cube([50,50,cubeheight+4],true);
-                cube([44,44,cubeheight],true);
+                translate([0,0,-4]) cube([
+                    cube_inner_hole+thickness,
+                    cube_inner_hole+thickness,
+                    cube_height+4
+                ],true);
+                #cube([cube_inner_hole,cube_inner_hole,cube_height],true);
             };
 
-        cylinder(circheight,r1=43/2,r2=50/2);
+        cylinder(
+            circ_height,
+            r1=(circ_height+thickness)/2,
+            r2=(circ_height+thickness*2)/2
+        );
     };
 
-    cylinder(circheight+2,r=35/2);
+translate([0,0,-1]) #cylinder(circ_height+8,r=circ_inner_hole/2);
 };
