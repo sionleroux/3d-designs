@@ -31,7 +31,9 @@ union(){
     ch=(oh-ih)/2; // clip height
     cw=gap*2; // clip width
     translate([0,ih/2+ch,0]) linear_extrude(il) {
-        translate([-iw/2-gap,0,0]) polygon([[0,0],[0,-ch],[+cw,-ch]]);
-        translate([+iw/2+gap,0,0]) polygon([[0,0],[0,-ch],[-cw,-ch]]);
+        translate([-iw/2-gap,0,0]) triangle(+cw, -ch);
+        translate([+iw/2+gap,0,0]) triangle(-cw, -ch);
     };
 };
+
+module triangle(w, h) { polygon([[0,0],[0,h],[w,h]]); }
