@@ -14,7 +14,14 @@ union(){
     difference(){
         translate([-thickness,0,0])
             cube([holew+thickness*2,holed,holeh+thickness]);
-        cube([holew,holed,holeh]);
+        union(){
+            // rounded top
+            translate([holew/2,holed,holeh/2+thickness])
+                rotate([90,0,0])
+                cylinder(holed,d=holew);
+            // square bottom
+            cube([holew,holed,holeh/2+thickness]);
+        };
     };
 
     // Left drill flap
